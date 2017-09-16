@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     createTask () {
-      console.log(this.title, this.desc, this.assign)
       this.$db.ref('tasks/hitam/').push({
         title: this.title,
         description: this.desc,

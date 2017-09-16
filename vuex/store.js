@@ -12,7 +12,7 @@ var state = {
 }
 
 var mutations = {
-  // 
+  //
 }
 
 var actions = {

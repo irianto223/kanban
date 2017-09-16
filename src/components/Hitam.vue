@@ -1,10 +1,11 @@
 <template lang="html">
   <div>
-    <div class="card grey darken-4">
+    <div v-for="data in hitam" class="card grey darken-4">
       <div class="card-content white-text">
-        <span class="card-title">Card Title</span>
-        <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+        <span class="card-title">{{ data.title }}</span>
+        <p>{{ data.description }}</p>
+        <p><b>"{{ data.assign }}"</b></p>
+        <!-- <p>key: {{ data['.key'] }}</p> -->
       </div>
       <div class="card-action">
         <a href="#!">This is a link</a>
@@ -16,6 +17,14 @@
 
 <script>
 export default {
+  firebase: function () {
+    return {
+      hitam: this.$db.ref('tasks/hitam/')
+    }
+  },
+  mounted () {
+    console.log(this.hitam)
+  }
 }
 </script>
 
