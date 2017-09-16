@@ -8,8 +8,8 @@
         <!-- <p>key: {{ data['.key'] }}</p> -->
       </div>
       <div class="card-action">
-        <a href="#!">This is a link</a>
-        <a href="#!">This is a link</a>
+        <a @click="deleteTask(data['.key'])" href="#!">DELETE</a><br>
+        <a @click="moveRight(data['.key'], data.title, data.description, data.assign)" href="#!">MOVE RIGHT</a>
       </div>
     </div>
   </div>
@@ -22,8 +22,18 @@ export default {
       hitam: this.$db.ref('tasks/hitam/')
     }
   },
-  mounted () {
-    console.log(this.hitam)
+  methods: {
+    deleteTask (key) {
+      this.$db.ref(`tasks/hitam/${key}`).remove()
+    },
+    moveRight (key, title, desc, assign) {
+      this.$db.ref(`tasks/hitam/${key}`).remove()
+      this.$db.ref(`tasks/merah/`).push({
+        title: title,
+        description: desc,
+        assign: assign
+      })
+    }
   }
 }
 </script>

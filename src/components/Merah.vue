@@ -1,35 +1,31 @@
 <template lang="html">
   <div>
-
-    <div class="card red darken-1">
+    <div v-for="data in merah" class="card red darken-1">
       <div class="card-content white-text">
-        <span class="card-title">Card Title</span>
-        <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+        <span class="card-title">{{ data.title }}</span>
+        <p>{{ data.description }}</p>
+        <p><b>"{{ data.assign }}"</b></p>
       </div>
       <div class="card-action">
-        <a href="#!">This is a link</a>
-        <a href="#!">This is a link</a>
+        <a @click="deleteTask(data['.key'])" href="#!">DELETE</a><br>
+        <a href="#!">MOVE RIGHT</a>
       </div>
     </div>
-
-    <div class="card red darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">Card Title</span>
-        <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-      </div>
-      <div class="card-action">
-        <a href="#!">This is a link</a>
-        <a href="#!">This is a link</a>
-      </div>
-    </div>
-
   </div>
 </template>
 
 <script>
 export default {
+  firebase: function () {
+    return {
+      merah: this.$db.ref('tasks/merah/')
+    }
+  },
+  methods: {
+    deleteTask (key) {
+      this.$db.ref(`tasks/merah/${key}`).remove()
+    }
+  }
 }
 </script>
 
