@@ -8,8 +8,8 @@
         <!-- <p>key: {{ data['.key'] }}</p> -->
       </div>
       <div class="card-action">
-        <a @click="deleteTask(data['.key'])" href="#!">DELETE</a><br>
-        <a @click="moveRight(data['.key'], data.title, data.description, data.assign)" href="#!">MOVE RIGHT</a>
+        <a @click="deleteTask(data['.key'])" href="#!"><i class="small material-icons">delete</i></a>
+        <a @click="moveRight(data['.key'], data.title, data.description, data.assign)" href="#!"><i class="small material-icons">arrow_forward</i></a>
       </div>
     </div>
   </div>

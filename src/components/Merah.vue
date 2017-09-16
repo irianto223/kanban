@@ -7,9 +7,9 @@
         <p><b>"{{ data.assign }}"</b></p>
       </div>
       <div class="card-action">
-        <a @click="deleteTask(data['.key'])" href="#!">DELETE</a><br>
-        <a @click="moveRight(data['.key'], data.title, data.description, data.assign)" href="#!">MOVE RIGHT</a><br>
-        <a @click="moveLeft(data['.key'], data.title, data.description, data.assign)" href="#!">MOVE LEFT</a>
+        <a @click="moveLeft(data['.key'], data.title, data.description, data.assign)" href="#!"><i class="small material-icons">arrow_back</i></a>
+        <a @click="moveRight(data['.key'], data.title, data.description, data.assign)" href="#!"><i class="small material-icons">arrow_forward</i></a>
+        <a @click="deleteTask(data['.key'])" href="#!"><i class="small material-icons">delete</i></a>
       </div>
     </div>
   </div>
